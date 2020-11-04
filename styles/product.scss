@@ -1,0 +1,67 @@
+section.most-popular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  
+  h2.section-title {
+    color: #48185b;
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 24px;
+  }
+  
+  .product {
+    width: 20%;
+    min-width: 180px;
+  
+    padding: 8px 10px;
+    position: relative;
+  
+    .position {
+      // z-index: 2;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      right: 0;
+      background: #e8ecf0;
+      height: 35px;
+      width: 30px;
+
+      &::before {
+        border-top: 10px solid #e8ecf0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        content: "";
+        height: 0;
+        left: 0;
+        position: absolute;
+        bottom: -10px;
+        width: 0;
+      }
+    }
+  
+    img {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .description {
+      color: #3f3f3f;
+      margin-bottom: 8px;
+
+      strong {
+        font-weight: normal;
+        font-size: 18px;
+        color: #48185b;
+      }
+
+      & > small {
+        color: #777;
+        font-size: 13px;
+      }
+    }
+  }
+}

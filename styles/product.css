@@ -1,0 +1,79 @@
+section.most-popular {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+}
+
+section.most-popular h2.section-title {
+  color: #48185b;
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 24px;
+}
+
+section.most-popular .product {
+  width: 20%;
+  min-width: 180px;
+  padding: 8px 10px;
+  position: relative;
+}
+
+section.most-popular .product .position {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  right: 0;
+  background: #e8ecf0;
+  height: 35px;
+  width: 30px;
+}
+
+section.most-popular .product .position::before {
+  border-top: 10px solid #e8ecf0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  bottom: -10px;
+  width: 0;
+}
+
+section.most-popular .product img {
+  width: 100%;
+  padding: 20px;
+}
+
+section.most-popular .product .description {
+  color: #3f3f3f;
+  margin-bottom: 8px;
+}
+
+section.most-popular .product .description strong {
+  font-weight: normal;
+  font-size: 18px;
+  color: #48185b;
+}
+
+section.most-popular .product .description > small {
+  color: #777;
+  font-size: 13px;
+}
+/*# sourceMappingURL=product.css.map */
