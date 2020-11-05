@@ -19,14 +19,62 @@ section.most-popular h2.section-title {
   margin-bottom: 24px;
 }
 
-section.most-popular .product {
+section.most-popular .product-carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 60%;
+  overflow: hidden;
+  position: relative;
+  padding: 0px 20px;
+}
+
+section.most-popular .product-carousel #arrow-left, section.most-popular .product-carousel #arrow-right {
+  font-size: 40px;
+  font-weight: 700;
+  color: orangered;
+  position: absolute;
+  top: 40%;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+section.most-popular .product-carousel #arrow-left {
+  left: 0;
+}
+
+section.most-popular .product-carousel #arrow-right {
+  right: 0;
+}
+
+section.most-popular .product-carousel .products-group {
+  width: 100%;
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+section.most-popular .product-carousel .products-group .product {
   width: 20%;
   min-width: 180px;
   padding: 8px 10px;
   position: relative;
 }
 
-section.most-popular .product .position {
+section.most-popular .product-carousel .products-group .product + .product {
+  margin-left: 16px;
+}
+
+section.most-popular .product-carousel .products-group .product .position-badge {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,7 +92,7 @@ section.most-popular .product .position {
   width: 30px;
 }
 
-section.most-popular .product .position::before {
+section.most-popular .product-carousel .products-group .product .position-badge::before {
   border-top: 10px solid #e8ecf0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
@@ -56,23 +104,33 @@ section.most-popular .product .position::before {
   width: 0;
 }
 
-section.most-popular .product img {
+section.most-popular .product-carousel .products-group .product img {
   width: 100%;
   padding: 20px;
 }
 
-section.most-popular .product .description {
+section.most-popular .product-carousel .products-group .product .description {
   color: #3f3f3f;
   margin-bottom: 8px;
 }
 
-section.most-popular .product .description strong {
+section.most-popular .product-carousel .products-group .product .description .title {
+  max-width: 400px;
+  overflow: hidden;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+section.most-popular .product-carousel .products-group .product .description strong {
   font-weight: normal;
   font-size: 18px;
   color: #48185b;
 }
 
-section.most-popular .product .description > small {
+section.most-popular .product-carousel .products-group .product .description > small {
   color: #777;
   font-size: 13px;
 }
