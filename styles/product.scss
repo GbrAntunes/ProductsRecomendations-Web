@@ -1,4 +1,11 @@
-section.most-popular {
+h1 {
+  font-size: 26px;
+  font-weight: normal;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,7 +13,7 @@ section.most-popular {
   
   h2.section-title {
     color: #48185b;
-    font-size: 24px;
+    font-size: 21px;
     font-weight: normal;
     margin-bottom: 24px;
   }

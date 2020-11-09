@@ -1,69 +1,75 @@
 (async function () {
-  const vitrines = await fetch('./assets/products.json')
   const productCarousel = document.querySelector('.product-carousel')
   const arrowRight = document.querySelector('#arrow-right')
   const arrowLeft = document.querySelector('#arrow-left')
 
-  renderCarouselContent(productCarousel, await vitrines.json())
+  const productList = await getProductIdList()
 
-  function renderCarouselContent(carousel, products) {
-    const productGroups = document.querySelectorAll('.products-group')
+  renderPopularCarouselContent(productCarousel, productList)
+
+  function renderPopularCarouselContent(carousel, products) {
     let currentGroup = 0
-    productGroups[currentGroup].style.display = 'flex'
+    let productCount = 1
 
+    while (products.mais_vendidos.length >= 4) {
 
-    // Verifica se ainda há 4 produtos para serem renderizados
-    while (products[0].products.length % 4 === 0) {
+      const productPack = products.mais_vendidos.splice(0, 4)
+
       const productGroup = createElement('div', 'products-group')
 
-      products[0].products.splice(0, 4).forEach(product => {
+      carousel.insertBefore(productGroup, arrowRight)
+
+      productPack.forEach(async (product) => {
         const productElement = createElement('div', 'product')
 
-        productElement.innerHtml = `
-          <span class="position-badge">1º</span>
+        const fullProduct = await getProductById(product.recommendedProduct.id)
+
+        if (!fullProduct) {
+          console.log('Não encontrado')
+        }
+
+        productElement.innerHTML = `
+          <span class="position-badge">${productCount}º</span>
         
           <img
-            src="http://d1h4n7nr93grs2.cloudfront.net/Custom/Content/Products/11/08/1108504_p-12495_m3_636935423525390545"
-            alt="arara">
+            src="http:/${fullProduct.images.default || ''}"
+            alt="${fullProduct.name || ''}">
           <div class="description">
-            <p class="title">Conjunto 3 Potes Retangular 750ml Porto Alegre Jaguar Sortido - 12215</p>
+            <p class="title">${fullProduct.name || ''}</p>
             <small>
-              <del>R$ 79,90</del>
+              <del>${formatValue(fullProduct.oldPrice)}</del>
             </small>
-            <p>Por <strong>R$ 79,90</strong></p>
-            <p>10x R$ 7.99</p>
+            <p>Por <strong>${formatValue(fullProduct.price)}</strong></p>
+            <p>10x ${formatValue(fullProduct.installment.price)}</p>
           </div>
         `
 
         productGroup.appendChild(productElement)
-      })
-
-      carousel.insertBefore(productGroup, arrowRight)
+        productCount++
+      });
     }
+    
+    const productGroups = document.querySelectorAll('.products-group')
 
-    function createElement(element, className) {
-      const newElement = document.createElement(element)
-      newElement.className = className
+    productGroups[currentGroup].style.display = 'flex'
 
-      return newElement
-    }
+    arrowRight.addEventListener("click", () => {
+      productGroups[currentGroup].style.display = 'none'
+  
+      currentGroup++
+      (currentGroup === productGroups.length) && (currentGroup = 0)
+  
+      productGroups[currentGroup].style.display = 'flex'
+    })
+  
+    arrowLeft.addEventListener("click", () => {
+      productGroups[currentGroup].style.display = 'none'
+  
+      currentGroup === 0 && (currentGroup = (productGroups.length))
+      currentGroup--
+  
+      productGroups[currentGroup].style.display = 'flex'
+    })
   }
 
-  arrowRight.addEventListener("click", () => {
-    productGroups[currentGroup].style.display = 'none'
-
-    currentGroup++
-    (currentGroup === productGroups.length) && (currentGroup = 0)
-
-    productGroups[currentGroup].style.display = 'flex'
-  })
-
-  arrowLeft.addEventListener("click", () => {
-    productGroups[currentGroup].style.display = 'none'
-
-    currentGroup === 0 && (currentGroup = (productGroups.length))
-    currentGroup--
-
-    productGroups[currentGroup].style.display = 'flex'
-  })
 })()

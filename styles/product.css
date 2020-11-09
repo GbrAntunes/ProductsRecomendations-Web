@@ -1,4 +1,11 @@
-section.most-popular {
+h1 {
+  font-size: 26px;
+  font-weight: normal;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,14 +19,14 @@ section.most-popular {
   width: 100vw;
 }
 
-section.most-popular h2.section-title {
+section h2.section-title {
   color: #48185b;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: normal;
   margin-bottom: 24px;
 }
 
-section.most-popular .product-carousel {
+section .product-carousel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,7 +40,7 @@ section.most-popular .product-carousel {
   padding: 0px 20px;
 }
 
-section.most-popular .product-carousel #arrow-left, section.most-popular .product-carousel #arrow-right {
+section .product-carousel #arrow-left, section .product-carousel #arrow-right {
   font-size: 40px;
   font-weight: 700;
   color: orangered;
@@ -46,15 +53,15 @@ section.most-popular .product-carousel #arrow-left, section.most-popular .produc
           user-select: none;
 }
 
-section.most-popular .product-carousel #arrow-left {
+section .product-carousel #arrow-left {
   left: 0;
 }
 
-section.most-popular .product-carousel #arrow-right {
+section .product-carousel #arrow-right {
   right: 0;
 }
 
-section.most-popular .product-carousel .products-group {
+section .product-carousel .products-group {
   width: 100%;
   display: none;
   -webkit-box-orient: horizontal;
@@ -63,18 +70,18 @@ section.most-popular .product-carousel .products-group {
           flex-direction: row;
 }
 
-section.most-popular .product-carousel .products-group .product {
+section .product-carousel .products-group .product {
   width: 20%;
   min-width: 180px;
   padding: 8px 10px;
   position: relative;
 }
 
-section.most-popular .product-carousel .products-group .product + .product {
+section .product-carousel .products-group .product + .product {
   margin-left: 16px;
 }
 
-section.most-popular .product-carousel .products-group .product .position-badge {
+section .product-carousel .products-group .product .position-badge {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -92,7 +99,7 @@ section.most-popular .product-carousel .products-group .product .position-badge 
   width: 30px;
 }
 
-section.most-popular .product-carousel .products-group .product .position-badge::before {
+section .product-carousel .products-group .product .position-badge::before {
   border-top: 10px solid #e8ecf0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
@@ -104,17 +111,17 @@ section.most-popular .product-carousel .products-group .product .position-badge:
   width: 0;
 }
 
-section.most-popular .product-carousel .products-group .product img {
+section .product-carousel .products-group .product img {
   width: 100%;
   padding: 20px;
 }
 
-section.most-popular .product-carousel .products-group .product .description {
+section .product-carousel .products-group .product .description {
   color: #3f3f3f;
   margin-bottom: 8px;
 }
 
-section.most-popular .product-carousel .products-group .product .description .title {
+section .product-carousel .products-group .product .description .title {
   max-width: 400px;
   overflow: hidden;
   display: -webkit-box;
@@ -124,13 +131,13 @@ section.most-popular .product-carousel .products-group .product .description .ti
   -webkit-box-orient: vertical;
 }
 
-section.most-popular .product-carousel .products-group .product .description strong {
+section .product-carousel .products-group .product .description strong {
   font-weight: normal;
   font-size: 18px;
   color: #48185b;
 }
 
-section.most-popular .product-carousel .products-group .product .description > small {
+section .product-carousel .products-group .product .description > small {
   color: #777;
   font-size: 13px;
 }
