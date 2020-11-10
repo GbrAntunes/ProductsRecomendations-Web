@@ -3,6 +3,11 @@ h1 {
   font-weight: normal;
   color: #777;
   margin-bottom: 16px;
+  margin-left: 15%;
+}
+
+section + h1 {
+  margin-top: 32px;
 }
 
 section {
@@ -39,10 +44,20 @@ section {
     #arrow-left { left: 0; }
     #arrow-right { right: 0; }
 
+    .discount-badge {
+      background: #48185b;
+      color: #FFF;
+      padding: 8px 4px;
+      position: absolute;
+      font-size: 12px;
+      border-radius: 2px;
+    }
+
     .products-group {
       width: 100%;
       display: none;
       flex-direction: row;
+      justify-content: space-evenly;
 
       .product {
         width: 20%;
