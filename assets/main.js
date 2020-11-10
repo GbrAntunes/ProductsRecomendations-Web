@@ -1,9 +1,6 @@
 (async function () {
   const [mostPopularCrs, reducedPriceCrs] = document.querySelectorAll('.product-carousel')
 
-  console.log(mostPopularCrs)
-  console.log(reducedPriceCrs)
-
   const {
     ofertas: reducedPriceList,
     mais_vendidos: mostPopularList
@@ -21,18 +18,20 @@
     while (products.length >= 4) {
 
       const productPack = products.splice(0, 4)
-
+      
       const productGroup = createElement('div', 'products-group')
-
+      
       carousel.insertBefore(productGroup, arrowRight)
-
+      
       productPack.forEach(async (product) => {
+        
         const productElement = createElement('div', 'product')
-
+        
         const fullProduct = await getProductById(product.recommendedProduct.id)
-
+        
         if (!fullProduct) {
-          console.log('Não encontrado')
+          console.error(`Product ${product.recommendedProduct.id} not found`)
+          return
         }
 
         productElement.innerHTML = `
@@ -99,7 +98,8 @@
         const fullProduct = await getProductById(product.recommendedProduct.id)
 
         if (!fullProduct) {
-          console.log('Não encontrado')
+          console.error(`Product ${product.recommendedProduct.id} not found`)
+          return
         }
 
         const porcentage = discountCalc(fullProduct.price, fullProduct.oldPrice)
